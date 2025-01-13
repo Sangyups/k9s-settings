@@ -1,2 +1,4 @@
 *.log
 clusters/
+.DS_Store
+screen-dumps/
