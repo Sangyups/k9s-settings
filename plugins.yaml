@@ -1,0 +1,51 @@
+plugins:
+  fred:
+    # Define a mnemonic to invoke the plugin
+    shortCut: Shift-L
+    # What will be shown on the K9s menu
+    description: Pod logs
+    # Collections of views that support this shortcut. (You can use `all`)
+    scopes:
+      - po
+      # The command to run upon invocation. Can use Krew plugins here too!
+    command: kubectl
+    # Whether or not to run the command in background mode
+    background: false
+    # Defines the command arguments
+    args:
+      - logs
+      - -f
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+  kubectl-node_shell:
+    shortCut: s
+    confirm: false
+    description: Shell Node
+    scopes:
+      - node
+    command: kubectl
+    background: false
+    args:
+      - node-shell
+      - $NAME
+  log-less:
+    shortCut: Shift-K
+    description: "logs|less"
+    scopes:
+      - po
+    command: bash
+    background: false
+    args:
+      - -c
+      - '"$@" | less'
+      - dummy-arg
+      - kubectl
+      - logs
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
