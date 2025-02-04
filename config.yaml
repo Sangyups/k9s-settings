@@ -6,7 +6,8 @@ k9s:
   readOnly: false
   noExitOnCtrlC: false
   ui:
-    enableMouse: false
+    skin: dracula
+    enableMouse: true
     headless: false
     logoless: false
     crumbsless: false
